@@ -225,4 +225,21 @@ class SimpleDB
 		return $createQuery;
 
 	}
+
+	/**
+	 * Update Function
+	 * @param   $[updateValues] [<Receives update values as input>]
+	 * @return   [<function to link to the cam>]
+	 */
+	public function update($upateValues) 
+	{
+		return implode('',$this->where);
+	}
+
+
+
+	/**
+	 * Delete function
+	 * @param [string] $[deleteparams] [<Fields to deleted from the databasei>]
+	 */
 }

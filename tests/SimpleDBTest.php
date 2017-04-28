@@ -16,9 +16,15 @@ class SimpleDBTest extends PHPUnit_Framework_TestCase
 
 				->result();
 		**/
+		/**
 		$name='Fuck';
 		echo $test->table('users',['id','username','check','oop'])
 					->create([$name,'Chika','Rapheal','false'])
 					->save();	
+
+	**/
+	
+	echo $test->where(['id'=>'Rapheal'])
+				->update(['username'=>'Koye']);				
 	}
 }
