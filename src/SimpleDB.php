@@ -193,11 +193,14 @@ class SimpleDB
 				}
 				array_push($newFields, ')');
 				$newFields=implode('', $newFields);
-				if(substr($newFields, -1)==',')
+				if(substr($newFields, -1)==')')
 				{
-					$newFields=preg_replace('/[,$]/', ' ', $newFields);
+					//$selectedString=substr($newFields,-2,-1);
+					$newFields=substr_replace($newFields, '', -2,-1);
+					//$newFields=substr_replace($newFields,' ', $beforeLast);
+				
 				}
-				die($newFields);
+				$createQuery[]=$newFields;
 			}
 		}
 		
