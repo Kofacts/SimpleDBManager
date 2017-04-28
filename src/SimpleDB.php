@@ -242,4 +242,9 @@ class SimpleDB
 	 * Delete function
 	 * @param [string] $[deleteparams] [<Fields to deleted from the databasei>]
 	 */
+	
+	public function delete($deleteValues)
+	{
+		return $vars;
+	}
 }
