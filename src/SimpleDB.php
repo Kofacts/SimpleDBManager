@@ -12,7 +12,7 @@ class SimpleDB
 	protected $fromTable;
 	protected $whereVal;
 	protected $createTable;
-	protected $vals;
+	protected $vals=[];
 	protected $createFields;
 
 	public function __construct()
@@ -167,7 +167,7 @@ class SimpleDB
 		$this->createFields=$fields;
 		return $this;
 	}
-	public function create(...$vals)
+	public function create($vals)
 	{
 		$this->vals=$vals;
 		return $this;
@@ -202,6 +202,22 @@ class SimpleDB
 				}
 				$createQuery[]=$newFields;
 			}
+		}
+		if(!empty($this->vals))
+		{
+			$createQuery[]="VALUES ";
+
+			$valuesArray=[];
+			array_push($valuesArray,'(');
+			foreach($this->vals as $values)
+			{
+				array_push($valuesArray,"'$values'");
+			}
+			array_push($valuesArray, ')');
+			$valuesArray=implode(',',$valuesArray);
+			$valuesArray=substr_replace($valuesArray, ' ',1,1);
+			$valuesArray=substr_replace($valuesArray, ' ', -2,-1);
+			$createQuery[]=$valuesArray;
 		}
 		
 

@@ -16,8 +16,9 @@ class SimpleDBTest extends PHPUnit_Framework_TestCase
 
 				->result();
 		**/
+		$name='Fuck';
 		echo $test->table('users',['id','username','check','oop'])
-					->create('name',1)
+					->create([$name,'Chika','Rapheal','false'])
 					->save();	
 	}
 }
